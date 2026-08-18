@@ -1,146 +1,80 @@
 # FlowForge Backend
 
-> REST API for FlowForge — a team task management platform with organizations, boards, kanban-style task tracking, threaded comments, and role-based access control.
-
----
+> Node.js & Express backend for FlowForge — provides REST APIs, authentication, task management, organizations, comments, and MySQL database integration.
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Runtime | Node.js |
-| Framework | Express.js |
-| ORM | Sequelize |
-| Database | MySQL |
-| Auth | JWT |
-
----
+| Layer          | Technology |
+| -------------- | ---------- |
+| Runtime        | Node.js    |
+| Framework      | Express.js |
+| Database       | MySQL      |
+| Authentication | JWT        |
+| API            | REST       |
 
 ## Features
 
-- **Organizations** — create and manage organizations, invite members via email tokens
-- **Role-based access** — org-level roles (`owner`, `admin`, `member`, `viewer`) and board-level roles
-- **Boards** — kanban boards scoped to an organization with member-level access control
-- **Statuses** — ordered, customizable status columns per board with terminal state support
-- **Tasks** — full task lifecycle with priority, due dates, drag-and-drop position, and soft delete
-- **Assignees** — assign multiple members to a task
-- **Threaded comments** — nested comment threads on tasks with soft delete
-- **Activity log** — full audit trail of all actions per board/task
-- **Invites** — token-based email invite system with expiry and status tracking
-- **Soft delete** — paranoid mode on core models (User, Organization, Board, Task, Comment)
-
----
+- User authentication
+- JWT authorization
+- Organization management
+- Board & task APIs
+- Comments API
+- Activity logs
+- Role-based permissions
+- MySQL database
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js >= 18
-- MySQL >= 8
-
-### Installation
+### Clone
 
 ```bash
-git clone https://github.com/snageshprasad/flow-forge-backend.git
+git clone https://github.com/satyajit-pradhan522/flow-forge-backend.git
 cd flow-forge-backend
+```
+
+### Install
+
+```bash
 npm install
 ```
 
-### Environment Setup
+### Environment
 
-```bash
-cp .env.example .env
-```
-
-Fill in your `.env`:
+Create a `.env` file:
 
 ```env
 PORT=5000
-
 DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=flowforge
 DB_USER=root
 DB_PASSWORD=your_password
-
-JWT_SECRET=your_jwt_secret
-JWT_EXPIRES_IN=7d
+DB_NAME=flowforge
+JWT_SECRET=your_secret_key
 ```
 
 ### Run
 
 ```bash
-# development
 npm run dev
-
-# production
-npm start
 ```
 
----
+## API Base URL
 
-## Environment Variables
-
-| Variable | Required | Description |
-|---|---|---|
-| `PORT` | No | Server port (default: 5000) |
-| `DB_HOST` | Yes | MySQL host |
-| `DB_PORT` | No | MySQL port (default: 3306) |
-| `DB_NAME` | Yes | Database name |
-| `DB_USER` | Yes | Database user |
-| `DB_PASSWORD` | Yes | Database password |
-| `JWT_SECRET` | Yes | Secret for signing JWTs |
-| `JWT_EXPIRES_IN` | No | JWT expiry (default: 7d) |
-
----
-
-## API Overview
-
-| Resource | Base Path |
-|---|---|
-| Auth | `/api/auth` |
-| Users | `/api/users` |
-| Organizations | `/api/organizations` |
-| Boards | `/api/boards` |
-| Statuses | `/api/statuses` |
-| Tasks | `/api/tasks` |
-| Comments | `/api/comments` |
-| Invites | `/api/invites` |
-| Activity | `/api/activity` |
-
----
-
-## Roles & Permissions
-
-### Organization Roles
-
-| Role | Description |
-|---|---|
-| `owner` | Full control, can delete org |
-| `admin` | Manage members, boards, tasks |
-| `member` | Create and manage own tasks |
-| `viewer` | Read-only access |
-
-### Board Roles
-
-| Role | Description |
-|---|---|
-| `admin` | Manage board, statuses, members |
-| `member` | Create and manage tasks |
-| `viewer` | Read-only access |
-
----
+```text
+http://localhost:5000/api
+```
 
 ## Frontend
 
-This backend connects to the [FlowForge Frontend](https://github.com/snageshprasad/flow-forge-frontend).
+React frontend repository:
 
----
+**https://github.com/satyajit-pradhan522/flow-forge-frontend**
+
+## Author
+
+**Satyajit Pradhan**
+
+GitHub: https://github.com/satyajit-pradhan522
 
 ## License
 
-Copyright (c) 2026 Nagesh Prasad Sahoo. All Rights Reserved.
-
-This source code is publicly visible for portfolio and review purposes only.
-Unauthorized use, copying, modification, distribution, or commercial use
-of this code without explicit written permission from the author is strictly prohibited.
+This project is for learning and portfolio purposes.
